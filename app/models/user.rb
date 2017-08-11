@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  has_many :registrations, dependent: :destroy
+
   def login=(login)
     @login = login
   end
@@ -20,5 +22,5 @@ class User < ActiveRecord::Base
         where(conditions.to_hash).first
     end
   end
-  
+
 end
