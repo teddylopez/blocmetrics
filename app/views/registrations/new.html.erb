@@ -1,6 +1,6 @@
 <h2>Register a new app:</h2>
 
-<%= form_for [current_user, @registration] do |f| %>
+<%= form_for @registration do |f| %>
   <%= f.label :name %>:<br />
   <%= f.text_field :name, placeholder: "Enter application name" %><br />
 
@@ -10,4 +10,3 @@
   <%= f.submit %>
 <% end %>
 <br>
-<%= link_to 'Back', root_path %>

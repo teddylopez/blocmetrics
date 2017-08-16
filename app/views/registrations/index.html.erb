@@ -10,7 +10,7 @@
 <h1>blocmetrics</h1>
 <p>An analytics tool for you</p>
 
-<%= link_to "Register an app", user_registrations_path(current_user)%>
+<%= link_to "Register an app", new_registration_path%>
 
 <% if current_user.registrations.any? %>
   <h1>Registered apps for <%= current_user.username %>:</h1>
@@ -29,7 +29,7 @@
         <tr>
           <td><%= app.name %></td>
           <td><%= app.url %></td>
-          <td><%= link_to 'Remove', delete_app_path(app), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Remove', registration_path(app), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

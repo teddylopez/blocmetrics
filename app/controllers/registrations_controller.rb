@@ -10,12 +10,16 @@ class RegistrationsController < ApplicationController
     @registration = Registration.new
   end
 
+  def show
+    @registration = current_user.registrations.find(params[:id])
+  end
+
   def create
     @registration = current_user.registrations.build(registration_params)
 
       if @registration.save
         flash[:notice] = "App has been added."
-        redirect_to root_path
+        redirect_to registration_path(@registration)
       else
         flash.now[:alert] = "There was an error adding the app. Please try again."
         render :new
