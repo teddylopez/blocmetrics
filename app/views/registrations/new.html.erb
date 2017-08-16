@@ -1,12 +1,12 @@
 <h2>Register a new app:</h2>
 
-<%= form_for [@user, @registration] do |f| %>
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br />
+<%= form_for [current_user, @registration] do |f| %>
+  <%= f.label :name %>:<br />
+  <%= f.text_field :name, placeholder: "Enter application name" %><br />
 
-  <%= f.label :url %>:
-  <%= f.text_field :url %><br />
-
+  <%= f.label :url %>:<br />
+  <%= f.text_field :url, placeholder: "Enter application URL" %><br />
+  <br>
   <%= f.submit %>
 <% end %>
 <br>

@@ -23,7 +23,8 @@ class RegistrationsController < ApplicationController
   end
 
   def destroy
-    set_registration
+    @user = current_user
+    @registration = Registration.find(params[:id])
 
       if @registration.destroy
         flash[:success] = "App has been removed."
@@ -35,12 +36,8 @@ class RegistrationsController < ApplicationController
 
   private
 
-    def set_registration
-      @registration ||= current_user.registrations.find(params[:id])
-    end
-
     def registration_params
-      params.require(:registration).permit(:name, :url)
+      params.require(:registration).permit(:name, :url, :user_id)
     end
 
 
