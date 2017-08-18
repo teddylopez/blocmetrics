@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :registrations, only: [:create, :new, :show, :destroy]
+  authenticated :user do
+    root 'registrations#index', as: :authenticated_root
+  end
 
-  root to: 'registrations#new'
+  resources :registrations, only: [:create, :new, :show, :destroy]
+  root to: 'registrations#about'
 
 end

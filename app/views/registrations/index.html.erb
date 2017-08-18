@@ -1,19 +1,7 @@
-<div class="container">
-  <% if current_user %>
-    <p id='user'><%= current_user.username %></p>
-  <% else %>
-    <%= link_to "Sign In", new_user_session_path %>
-    <%= link_to "Sign Up", new_user_registration_path %>
-  <% end %>
-</div>
+  <%= link_to "Register an app", new_registration_path%>
 
-<h1>blocmetrics</h1>
-<p>An analytics tool for you</p>
-
-<%= link_to "Register an app", new_registration_path%>
-
-<% if current_user.registrations.any? %>
-  <h1>Registered apps for <%= current_user.username %>:</h1>
+  <% if current_user.registrations.any? %>
+    <h1>Your registered apps:</h1>
 
   <table>
     <thead>
@@ -29,7 +17,10 @@
         <tr>
           <td><%= app.name %></td>
           <td><%= app.url %></td>
-          <td><%= link_to 'Remove', registration_path(app), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+          <% if current_user == app.user %>
+            <td><%= link_to 'Remove', registration_path(app), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

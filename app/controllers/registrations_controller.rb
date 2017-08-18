@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:about]
 
   def index
     @registrations = current_user.registrations
@@ -19,7 +19,7 @@ class RegistrationsController < ApplicationController
 
       if @registration.save
         flash[:notice] = "App has been added."
-        redirect_to registration_path(@registration)
+        redirect_to root_path
       else
         flash.now[:alert] = "There was an error adding the app. Please try again."
         render :new
@@ -36,6 +36,10 @@ class RegistrationsController < ApplicationController
         flash[:error] = "App could not be removed."
       end
       redirect_to root_path
+  end
+
+  def about
+
   end
 
   private
