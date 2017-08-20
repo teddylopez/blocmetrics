@@ -15,7 +15,7 @@
     <tbody>
       <% @registrations.each do |app| %>
         <tr>
-          <td><%= app.name %></td>
+          <td><%= link_to app.name, registration_path(app) %></td>
           <td><%= app.url %></td>
 
           <% if current_user == app.user %>
