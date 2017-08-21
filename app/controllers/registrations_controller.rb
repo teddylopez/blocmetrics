@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
 
   def show
     @registration = current_user.registrations.find(params[:id])
-    @events = @registration.events.group_by(&:name)
+    @events = @registration.events
   end
 
   def create
