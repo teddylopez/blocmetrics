@@ -9,7 +9,8 @@
  			 <%= name %> | <%= events.count %>
  		<% end %>
 
- 		<p><%= @events.count %> events exist for this app</p>
+ 		<%= pie_chart @registration.events.group(:name).count %>
+    <%= line_chart @registration.events.group_by_day(:created_at).count %>
  		<p>Added by <%= @registration.user.email %></p>
   	</div>
 </div>
