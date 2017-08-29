@@ -11,21 +11,21 @@
 
  # Create registered applications
  5.times do
-   Registration.create!(
+   RegisteredApplication.create!(
      user: test_user,
      name: Faker::App.name,
      url:  Faker::Internet.domain_name
    )
  end
- apps = Registration.all
+ apps = RegisteredApplication.all
 
 20.times do
 	Event.create!(
 		name: Faker::Lorem.sentence,
-		registration: Registration.first
+		registered_application: RegisteredApplication.first
 		)
 end
 
  puts "Seed finished"
- puts "#{Registration.count} apps created"
+ puts "#{RegisteredApplication.count} apps created"
  puts "#{Event.count} events created"

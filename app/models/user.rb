@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :registrations, dependent: :destroy
+  has_many :registered_applications, dependent: :destroy
 
   def login=(login)
     @login = login

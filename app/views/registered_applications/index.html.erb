@@ -1,6 +1,6 @@
-  <%= link_to "Register an app", new_registration_path%>
+  <%= link_to "Register an app", new_registered_application_path%>
 
-  <% if current_user.registrations.any? %>
+  <% if current_user.registered_applications.any? %>
     <h1>Your registered apps:</h1>
 
   <table>
@@ -13,13 +13,13 @@
     </thead>
 
     <tbody>
-      <% @registrations.each do |app| %>
+      <% @registered_applications.each do |app| %>
         <tr>
-          <td><%= link_to app.name, registration_path(app) %></td>
+          <td><%= link_to app.name, registered_application_path(app) %></td>
           <td><%= app.url %></td>
 
           <% if current_user == app.user %>
-            <td><%= link_to 'Remove', registration_path(app), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Remove', registered_application_path(app), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
       <% end %>
