@@ -1,41 +1,32 @@
-<div class="container">
-  <% if current_user %>
-    <p id='user'><%= current_user.username %></p>
-  <% else %>
-    <%= link_to "Sign In", new_user_session_path %>
-    <%= link_to "Sign Up", new_user_registration_path %>
-  <% end %>
-</div>
-
-<h1>blocmetrics</h1>
-<p>An analytics tool for you</p>
-
-<%= link_to "Register an app", user_registered_apps_path(current_user)%>
+<%= link_to "Register an app", new_registered_app_path%>
 
 <% if current_user.registered_apps.any? %>
-  <h1>Registered apps for <%= current_user.username %>:</h1>
+  <h1>Your registered apps:</h1>
 
-  <table>
-    <thead>
+<table>
+  <thead>
+    <tr>
+      <th>App</th>
+      <th>App URL</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @registered_apps.each do |app| %>
       <tr>
-        <th>App</th>
-        <th>App URL</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+        <td><%= link_to app.name, registered_app_path(app) %></td>
+        <td><%= app.url %></td>
 
-    <tbody>
-      <% @registered_apps.each do |app| %>
-        <tr>
-          <td><%= app.name %></td>
-          <td><%= app.url %></td>
-          <td><%= link_to 'Remove', user_registered_apps_path(current_user), method: :destroy, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <br>
+        <% if current_user == app.user %>
+          <td><%= link_to 'Remove', registered_app_path(app), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
 
 <% else %>
-  <h1>You have not registered any apps</h1>
+<h1>You have not registered any apps</h1>
 <%end %>

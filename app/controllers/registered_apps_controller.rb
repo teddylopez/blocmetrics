@@ -1,8 +1,13 @@
 class RegisteredAppsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:about]
 
   def index
     @registered_apps = current_user.registered_apps
+  end
+
+  def show
+    @registered_app = current_user.registered_apps.find(params[:id])
+    @events = @registered_app.events(:group => 'name')
   end
 
   def new
@@ -23,7 +28,8 @@ class RegisteredAppsController < ApplicationController
   end
 
   def destroy
-    set_registered_app
+    @user = current_user
+    @registered_app = RegisteredApp.find(params[:id])
 
       if @registered_app.destroy
         flash[:success] = "App has been removed."
@@ -33,6 +39,9 @@ class RegisteredAppsController < ApplicationController
       redirect_to root_path
   end
 
+  def about
+  end
+
   private
 
     def set_registered_app
@@ -40,7 +49,7 @@ class RegisteredAppsController < ApplicationController
     end
 
     def registered_app_params
-      params.require(:registered_app).permit(:name, :url)
+      params.require(:registered_app).permit(:name, :url, :user_id)
     end
 
 
