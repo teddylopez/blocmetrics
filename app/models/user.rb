@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable #, :confirmable
+
+  has_many :registered_apps, dependent: :destroy
 
   def login=(login)
     @login = login
@@ -20,5 +22,5 @@ class User < ActiveRecord::Base
         where(conditions.to_hash).first
     end
   end
-  
+
 end

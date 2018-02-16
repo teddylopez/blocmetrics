@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
-
   devise_for :users
-  get 'home/index'
-  
-  root to: "home#index"
+
+  resources :users, only: [:show] do
+    resources :registered_apps, only: [:create, :destroy, :show, :new]
+  end
+
+  get 'registered_apps/index'
+  get "/users/:id/registered_apps/" => "registered_apps#new"
+  root to: "registered_apps#index"
 
 end
