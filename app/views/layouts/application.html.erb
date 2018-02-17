@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blocmetrics</title>
+  <title>tedmetrics</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,6 +12,12 @@
     <div class="nav-wrapper">
       <%= link_to "tedmetrics", root_path, class: "brand-logo" %>
       <ul class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+            <li><%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="material-icons left">person</i>
+                <% end %>
+            </li>
+        <% end %>
         <li><%= link_to root_path do %>
             <i class="material-icons left">view_headline</i>
             <% end %>
@@ -28,8 +34,15 @@
     </div>
   </nav>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice %>
+    <div id="notice-wrapper">
+      <p class="notice"><%= notice %></p>
+    </div>
+  <% elsif alert %>
+    <div id="notice-wrapper">
+      <p class="alert"><%= alert %></p>
+    </div>
+  <%end %>
 
   <div class="container">
     <%= yield %>

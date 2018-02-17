@@ -18,6 +18,15 @@
 //= require turbolinks
 //= require_tree .
 
+// Script for fade-out notices and alerts
+  $(document).ready(function(){
+    setTimeout(function(){
+      $('#notice-wrapper').fadeOut("slow", function() {
+        $(this).remove();
+      })
+    }, 2000);
+  });
+
 function syntaxHighlights() {
   var codeArr = document.getElementsByTagName('code');
   for(var i=0; i<codeArr.length; i++) {
