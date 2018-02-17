@@ -2,24 +2,25 @@
 
 <div>
   <%= form_for @contact do |f| %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name, required: true %>
+  <label for="contact_name"><i class="material-icons prefix">account_circle</i></label><br>
+  <input required="required" type="text" name="contact[name]" id="contact_name" placeholder="Name" />
 
-    <br>
+  <br>
 
-    <%= f.label :email %><br>
-    <%= f.email_field :email, required: true %>
+  <label for="contact_email"><i class="material-icons prefix">email</i></label><br>
+  <input required="required" type="email" name="contact[email]" id="contact_email" placeholder="Email" />
 
-    <br>
+  <br>
 
-    <%= f.label :message %><br>
-    <%= f.text_area :message, as: :text %>
+  <label for="contact_message"><i class="material-icons prefix">comment</i></label><br>
+  <textarea as="text" name="contact[message]" id="contact_message" placeholder="Message">
+</textarea>
 
-    <div style="display:none">
-      <%= f.label :nickname %><br>
-      <%= f.text_field :nickname, hint: 'leave this field blank' %>
-    </div>
+  <div style="display:none">
+    <label for="contact_nickname">Nickname</label><br>
+    <input hint="leave this field blank" type="text" name="contact[nickname]" id="contact_nickname" />
+  </div>
 
-    <%= f.submit 'Send Message', class: "button" %>
+  <input type="submit" name="commit" value="Send Message" class="waves-effect waves-light btn" />
   <% end %>
 </div>

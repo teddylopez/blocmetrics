@@ -1,13 +1,13 @@
 <h3 class="headers">Register a new app:</h3>
 
 <%= form_for [@registered_app] do |f| %>
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br />
+  <input type="text" name="registered_app[name]" id="registered_app_name" placeholder="Name" /><br />
 
-  <%= f.label :url %>:
-  <%= f.text_field :url %><br />
+  <input type="text" name="registered_app[url]" id="registered_app_url" placeholder="URL" /><br />
 
-  <%= f.submit %>
+  <input type="submit" name="commit" value="Create Registered app" class="waves-effect waves-light btn" />
 <% end %>
 <br>
-<%= link_to 'Back', root_path %>
+<div class="devise-links">
+  <%= link_to 'Back', root_path %>
+</div>

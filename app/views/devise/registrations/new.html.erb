@@ -4,31 +4,31 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
+    <label for="user_username"><i class="material-icons prefix">account_circle</i></label><br />
+    <input autofocus="autofocus" type="text" name="user[username]" id="user_username" placeholder="Name" />
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <label for="user_email"><i class="material-icons prefix">email</i></label><br />
+    <input type="email" value="" name="user[email]" id="user_email" placeholder="Email" />
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <label for="user_password"><i class="material-icons prefix">lock_open</i></label>
+    <br />
+    <input autocomplete="off" type="password" name="user[password]" id="user_password" placeholder="Password" />
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <label for="user_password_confirmation"><i class="material-icons prefix">lock_outline</i></label><br />
+    <input autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation" placeholder="Password Confirmation" />
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <input type="submit" name="commit" value="Sign up" class="waves-effect waves-light btn" />
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<br>
+<div class="devise-links">
+  <%= render "devise/shared/links" %>
+</div>

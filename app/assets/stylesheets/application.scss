@@ -50,6 +50,10 @@ footer {
   }
 }
 
+.devise-links {
+  padding-left: 6rem;
+}
+
 .center {
   text-align: center;
 }
@@ -105,22 +109,6 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 
 textarea {
   min-height: 20em;
-}
-
-input[type="submit"], .button {
-  outline: none;
-  background: transparent;
-  border: 2px solid $border;
-  text-align: center;
-  font-size: 1em;
-  color: $dark;
-  text-decoration: none;
-  padding: 1em 2em;
-  vertical-align: middle;
-  &:hover {
-    border: 2px solid $highlight;
-    color: $highlight;
-  }
 }
 
 small {
