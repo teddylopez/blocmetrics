@@ -1,6 +1,6 @@
 <h2> <%= @registered_app.name %> </h2>
 <h5>URL: <%= link_to @registered_app.url, "http://#{@registered_app.url}", target: "_blank" %></h5>
-<p>Added by <%= @registered_app.user.email %></p>
+<p>Added by <%= @registered_app.user.username %></p>
 
 <div class="row">
 	<div class="col-md-8">
