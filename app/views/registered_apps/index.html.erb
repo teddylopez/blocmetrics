@@ -1,7 +1,8 @@
 <% if current_user.registered_apps.any? %>
   <div class="headers">
     <h3>Your registered apps:</h3>
-    <%= link_to "Register an app", new_registered_app_path%>
+    <br>
+    <%= link_to "Register a new app", new_registered_app_path, :class => 'waves-effect waves-light btn' %>
   </div>
 
 <table class="highlight centered">
@@ -9,7 +10,7 @@
     <tr>
       <th>App</th>
       <th>App URL</th>
-      <th colspan="3"></th>
+      <th colspan="3">Remove</th>
     </tr>
   </thead>
 
@@ -20,7 +21,7 @@
         <td><%= app.url %></td>
 
         <% if current_user == app.user %>
-          <td><%= link_to 'Remove', registered_app_path(app), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/registered_apps/7"><i class="material-icons">delete</i></a></td>
         <% end %>
       </tr>
     <% end %>
