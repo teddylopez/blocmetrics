@@ -23,6 +23,9 @@ gem 'figaro'
 gem 'devise'
 gem 'chartkick'
 gem 'groupdate', '~> 3.2'
+gem 'materialize-sass', '~> 0.100.2'
+gem 'material-icons-rails'
+gem 'mail_form', '~> 1.7'
 
 group :development, :test do
   gem 'byebug'

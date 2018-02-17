@@ -12,7 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require materialize-sprockets
 //= require Chart.bundle
 //= require chartkick
+//= require turbolinks
 //= require_tree .
+
+function syntaxHighlights() {
+  var codeArr = document.getElementsByTagName('code');
+  for(var i=0; i<codeArr.length; i++) {
+    var data = codeArr[i].innerHTML;
+    data = data.replace(/"(.*?)"/g, '<span class="code-str">&quot;$1&quot;</span>');
+    data = data.replace(/'(.*?)'/g, '<span class="code-str">&quot;$1&quot;</span>');
+    data = data.replace(/&lt;(.*?)&gt;/g, '<span class="code-elem">&lt;$1&gt;</span>');
+    data = data.replace(/\/\* (.*?) \*\//g, '<span class="code-comment">/* $1 */</span>');
+    codeArr[i].innerHTML = data;
+  }
+}
+window.addEventListener("load", syntaxHighlights);

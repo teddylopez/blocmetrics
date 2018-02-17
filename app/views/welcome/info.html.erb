@@ -1,0 +1,31 @@
+<h3 class="headers">Thanks for using tedmetrics</h3>
+<h3>Getting started </h3>
+<br>
+<h5>Using tedmetrics in your project is easy and requires two steps:</h5>
+<br>
+<h5>1: Insert the following JavaScript code snippet into your project's application.js file to track the events:</h5>
+
+<code>var tedmetrics = {};
+
+tedmetrics.report = function(eventName){
+  var event = {event: { name: eventName }};
+  var request = new XMLHttpRequest();
+  request.open("POST", "http://localhost:3000/api/events", true);
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.send(JSON.stringify(event));
+};
+</code>
+<br>
+<h5>2: The report function can now be called with an argument which will then be passed on in the request to tedmetrics. You can now call this function to help you track events such as click events:</h5>
+
+<code>
+&lt;a href="/about" onclick="tedmetrics.report('about link clicked')"&gt;
+</code>
+
+<h5>or even execute when a page is loaded:</h5>
+<code>
+&lt;script&gt;tedmetrics.report('about page loaded');&lt;/script&gt;
+</code>
+<br>
+
+<h5>That's it! You're ready to go. Make sure to register your app pn tedmetrics and track your data here.</h5>

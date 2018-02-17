@@ -1,9 +1,10 @@
-<%= link_to "Register an app", new_registered_app_path%>
-
 <% if current_user.registered_apps.any? %>
-  <h1>Your registered apps:</h1>
+  <div class="headers">
+    <h3>Your registered apps:</h3>
+    <%= link_to "Register an app", new_registered_app_path%>
+  </div>
 
-<table>
+<table class="highlight centered">
   <thead>
     <tr>
       <th>App</th>
@@ -29,4 +30,5 @@
 
 <% else %>
 <h1>You have not registered any apps</h1>
+<%= link_to "Register an app", new_registered_app_path%>
 <%end %>

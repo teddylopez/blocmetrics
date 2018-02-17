@@ -7,9 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <%= link_to "tedmetrics", root_path, class: "brand-logo" %>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to root_path do %>
+            <i class="material-icons left">view_headline</i>
+            <% end %>
+        </li>
+        <li><%= link_to new_contact_path do %>
+            <i class="material-icons left">mail_outline</i>
+            <% end %>
+        </li>
+        <li><%= link_to welcome_info_path do %>
+            <i class="material-icons left">details</i>
+            <% end %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <%= yield %>
+
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

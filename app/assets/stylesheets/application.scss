@@ -1,0 +1,120 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import 'materialize';
+@import 'material_icons';
+
+$dark: #424652;
+$light: #9a9da4;
+$highlight: #4285F4;
+$border: #E9E9E9;
+
+nav {
+  .brand-logo {
+    padding-left: 2rem;
+  }
+}
+
+footer {
+  .page-footer {
+    background-color: #536dfe;
+    padding-bottom: 5px;
+  }
+}
+
+ .nav-wrapper {
+   background-color: #536dfe;
+ }
+
+ body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding-bottom: 10rem;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+.headers {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 5rem;
+ }
+
+.header-row {
+  .div_common {
+    display: inline-block;
+  }
+  .url {
+    padding-left: 3rem;
+  }
+  margin-bottom: 0;
+}
+
+form {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 3em;
+  border: 2px solid $border;
+  padding: 1em;
+  margin: .5em 0 2em 0;
+}
+
+textarea {
+  min-height: 20em;
+}
+
+input[type="submit"], .button {
+  outline: none;
+  background: transparent;
+  border: 2px solid $border;
+  text-align: center;
+  font-size: 1em;
+  color: $dark;
+  text-decoration: none;
+  padding: 1em 2em;
+  vertical-align: middle;
+  &:hover {
+    border: 2px solid $highlight;
+    color: $highlight;
+  }
+}
+
+small {
+  margin: 0;
+}
+
+code {
+  font-size: 1rem;
+  display: block;
+  background-color: #f5f5f5;
+  white-space: pre-wrap;
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
+  padding: 10px;
+  line-height: 1.5em;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.code-str { color: #448aff; }
+.code-elem{ color: #f50057; }
+.code-comment { color:#999; }

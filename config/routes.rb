@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   resources :registered_apps, only: [:create, :new, :show, :destroy]
   root to: 'registered_apps#about'
 
+  get 'welcome/info'
+  resources :contacts, only: [:new, :create]
+
 end
