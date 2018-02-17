@@ -33,6 +33,7 @@ function syntaxHighlights() {
     var data = codeArr[i].innerHTML;
     data = data.replace(/"(.*?)"/g, '<span class="code-str">&quot;$1&quot;</span>');
     data = data.replace(/'(.*?)'/g, '<span class="code-str">&quot;$1&quot;</span>');
+    data = data.replace(/var(.*?)/g, '<span class="code-elem">var</span>');
     data = data.replace(/&lt;(.*?)&gt;/g, '<span class="code-elem">&lt;$1&gt;</span>');
     data = data.replace(/\/\* (.*?) \*\//g, '<span class="code-comment">/* $1 */</span>');
     codeArr[i].innerHTML = data;
