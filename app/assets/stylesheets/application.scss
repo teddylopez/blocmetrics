@@ -22,8 +22,12 @@ $highlight: #4285F4;
 $border: #E9E9E9;
 
 nav {
-  .brand-logo {
+  .logo {
     padding-left: 2rem;
+    position: absolute;
+    color: #fff;
+    display: inline-block;
+    font-size: 2.1rem;
   }
 }
 

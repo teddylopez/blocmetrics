@@ -10,8 +10,8 @@
 
   <nav>
     <div class="nav-wrapper">
-      <%= link_to "tedmetrics", root_path, class: "brand-logo" %>
-      <ul class="right hide-on-med-and-down">
+      <%= link_to "tedmetrics", root_path, class: "logo" %>
+      <ul class="right">
         <% if user_signed_in? %>
             <li><%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="material-icons left">person</i>
