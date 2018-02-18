@@ -30,6 +30,8 @@
 <br>
 
 <% else %>
-<h1>You have not registered any apps</h1>
-<%= link_to "Register an app", new_registered_app_path%>
+<div class="headers">
+  <h3>You have not registered any apps</h3>
+  <%= link_to "Register a new app", new_registered_app_path, :class => 'waves-effect waves-light btn' %>
+</div>
 <%end %>
