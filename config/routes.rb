@@ -10,10 +10,12 @@ Rails.application.routes.draw do
     resources :events, only: [:create]
   end
 
-  resources :registered_apps, only: [:create, :new, :show, :destroy]
-  root to: 'registered_apps#about'
-
-  get 'welcome/info'
   resources :contacts, only: [:new, :create]
+
+  resources :registered_apps
+  get 'registered_apps/about'
+  get 'registered_apps/info'
+
+  root to: 'registered_apps#about'
 
 end

@@ -1,5 +1,11 @@
 class RegisteredAppsController < ApplicationController
-  before_action :authenticate_user!, except: [:about]
+  before_action :authenticate_user!, except: [:about, :info]
+
+  def about
+  end
+
+  def info
+  end
 
   def index
     @registered_apps = current_user.registered_apps
@@ -7,7 +13,7 @@ class RegisteredAppsController < ApplicationController
 
   def show
     @registered_app = current_user.registered_apps.find(params[:id])
-    @events = @registered_app.events.group_by(&:name)
+    @events = @registered_app.events(:group => 'name')
   end
 
   def new
@@ -20,7 +26,7 @@ class RegisteredAppsController < ApplicationController
 
       if @registered_app.save
         flash[:notice] = "App has been added."
-        redirect_to root_path
+        redirect_to @registered_app
       else
         flash.now[:alert] = "There was an error adding the app. Please try again."
         render :new
@@ -36,21 +42,14 @@ class RegisteredAppsController < ApplicationController
       else
         flash[:error] = "App could not be removed."
       end
-      redirect_to root_path
-  end
-
-  def about
+      redirect_to registered_apps_path action: "index"
   end
 
   private
 
-    def set_registered_app
-      @registered_app ||= current_user.registered_apps.find(params[:id])
-    end
-
-    def registered_app_params
-      params.require(:registered_app).permit(:name, :url, :user_id)
-    end
+  def registered_app_params
+    params.require(:registered_app).permit(:name, :url, :user_id)
+  end
 
 
 end

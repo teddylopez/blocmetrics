@@ -21,7 +21,10 @@
         <td><%= app.url %></td>
 
         <% if current_user == app.user %>
-          <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/registered_apps/7"><i class="material-icons">delete</i></a></td>
+          <td><%= link_to registered_app_path(app), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="material-icons">delete</i>
+              <% end %>
+          </td>
         <% end %>
       </tr>
     <% end %>
