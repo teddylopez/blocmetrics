@@ -1,7 +1,7 @@
 class RegisteredAppsController < ApplicationController
-  before_action :authenticate_user!, except: [:about, :info]
+  before_action :authenticate_user!, except: [:info]
 
-  def about
+  def landing
   end
 
   def info
