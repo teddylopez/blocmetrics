@@ -4,6 +4,7 @@ class API::EventsController < ApplicationController
 
   def create
     registered_app = RegisteredApp.find_by(url: request.env['HTTP_ORIGIN'])
+    puts "App: " + registered_app.to_s
 
     if registered_app.nil?
       render json: "Unregistered application", status: :unprocessable_entity
@@ -27,7 +28,6 @@ class API::EventsController < ApplicationController
     headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
     headers['Access-Control-Allow-Headers'] = 'Content-Type'
   end
-
 
   private
 

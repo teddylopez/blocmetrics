@@ -21,9 +21,10 @@
         <td><%= app.url %></td>
 
         <% if current_user == app.user %>
-          <td><%= link_to registered_app_path(app), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <td>
+            <%= link_to registered_app_path(app), method: :delete, data: { confirm: 'Are you sure?' } do %>
               <i class="material-icons">delete</i>
-              <% end %>
+            <% end %>
           </td>
         <% end %>
       </tr>
