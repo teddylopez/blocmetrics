@@ -3,8 +3,7 @@ class API::EventsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    registered_app = RegisteredApp.find_by(url: request.env['HTTP_ORIGIN'])
-    puts "App: " + registered_app.to_s
+    registered_app = RegisteredApp.find_by(url: request.env['HTTP_ORIGIN']+'/')
 
     if registered_app.nil?
       render json: "Unregistered application", status: :unprocessable_entity

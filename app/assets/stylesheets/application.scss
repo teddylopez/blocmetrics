@@ -139,3 +139,12 @@ code {
 .code-str { color: #448aff; }
 .code-elem{ color: #f50057; }
 .code-comment { color:#999; }
+
+.app-stats {
+  margin-top: 4rem;
+  padding-left: 1rem;
+  .line {
+    padding-top: 5rem;
+    text-align: center;
+  }
+}

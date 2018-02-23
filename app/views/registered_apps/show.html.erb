@@ -2,16 +2,19 @@
 <h5>URL: <%= link_to @registered_app.url, "#{@registered_app.url}", target: "_blank" %></h5>
 <p>Added by <%= @registered_app.user.username %></p>
 
-<div class="row">
+<div class="row app-stats">
 	<div class="col-md-8">
-
-		<% @events.group_by(&:name).each do |name, events| %>
- 			 <%= name %> | <%= events.count %>
+		<h5><%= @events.count %> total events exist for this app</h5>
+		<ul><% @events.group_by(&:name).each do |name, events| %></ul>
+ 			 <li><%= name %> : <%= events.count %></li>
  		<% end %>
 
- 		<p><%= @events.count %> events exist for this app</p>
-
-		<%= pie_chart @registered_app.events.group(:name).count %>
-    <%= line_chart @registered_app.events.group_by_day(:created_at).count %>
+		<div class="pie">
+			<%= pie_chart @registered_app.events.group(:name).count %>
+		</div>
+		<div class="line">
+    	<%= line_chart @registered_app.events.group_by_day(:created_at).count %>
+			<h5>Events By Day</h5>
+		</div>
 	</div>
 </div>
