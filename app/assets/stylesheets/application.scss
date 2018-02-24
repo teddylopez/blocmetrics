@@ -79,6 +79,8 @@ footer {
     min-height: 100vh;
     flex-direction: column;
     padding-bottom: 10rem;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   main {
