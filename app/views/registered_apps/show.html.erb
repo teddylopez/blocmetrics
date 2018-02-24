@@ -13,7 +13,7 @@
 			<%= pie_chart @registered_app.events.group(:name).count %>
 		</div>
 		<div class="line">
-    	<%= line_chart @registered_app.events.group_by_day(:created_at, range: 5.days.ago..Time.now).count %>
+    	<%= line_chart @registered_app.events.group_by_day(:created_at, range: 30.days.ago..Time.now).count %>
 			<h5>Events By Day</h5>
 		</div>
 	</div>
