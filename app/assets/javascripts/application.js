@@ -27,7 +27,7 @@
     }, 2000);
   });
 
-function syntaxHighlights() {
+$(document).ready(function(){
   var codeArr = document.getElementsByTagName('code');
   for(var i=0; i<codeArr.length; i++) {
     var data = codeArr[i].innerHTML;
@@ -38,5 +38,5 @@ function syntaxHighlights() {
     data = data.replace(/\/\* (.*?) \*\//g, '<span class="code-comment">/* $1 */</span>');
     codeArr[i].innerHTML = data;
   }
-}
-window.addEventListener("load", syntaxHighlights);
+});
+//window.addEventListener("load", syntaxHighlights);
