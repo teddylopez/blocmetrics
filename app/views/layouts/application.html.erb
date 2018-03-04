@@ -15,20 +15,20 @@
       <ul class="right">
         <% if user_signed_in? %>
             <li><%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="material-icons left">person</i>
+                <i class="material-icons left link-item login-link">person</i>
                 <% end %>
             </li>
         <% end %>
         <li><%= link_to root_path do %>
-            <i class="material-icons left">view_headline</i>
+            <i class="material-icons left link-item">view_headline</i>
             <% end %>
         </li>
         <li><%= link_to new_contact_path do %>
-            <i class="material-icons left">mail_outline</i>
+            <i class="material-icons left link-item">mail_outline</i>
             <% end %>
         </li>
         <li><%= link_to welcome_info_path do %>
-            <i class="material-icons left">details</i>
+            <i class="material-icons left link-item">details</i>
             <% end %>
         </li>
       </ul>
