@@ -39,4 +39,4 @@ $(document).ready(function(){
     codeArr[i].innerHTML = data;
   }
 });
-//window.addEventListener("load", syntaxHighlights);
+window.addEventListener("load", syntaxHighlights);
